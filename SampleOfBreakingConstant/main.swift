@@ -6,10 +6,9 @@
 //  Copyright © 2018 Tomohiro Kumagai. All rights reserved.
 //
 
-import Foundation
-
 let value = 100
-
-print("🌻🌻🌻 Try to initialize with object.constant = ", value, "🙂", "\n")
 let object = Sub(convenience: value)
-print("\n🌻🌻🌻 But initialized by object.constant =", object.constant, "🤔")
+
+print("\n")
+print("🌻🌻🌻 Tried to initialize to assign a value `\(value)` to `object.constant`. 🤔")
+print("🌻🌻🌻 But `object.constant` was initialized by `\(object.constant)`. 😧")

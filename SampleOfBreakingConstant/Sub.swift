@@ -6,11 +6,6 @@
 //  Copyright © 2018 Tomohiro Kumagai. All rights reserved.
 //
 
-private func report(nest level: NestLevel, init initType: InitializerType, message: String) {
-    
-    report(nest: level, class: .sub, init: initType, message: message)
-}
-
 class Sub : Base {
     
     let constant: Int
@@ -21,18 +16,20 @@ class Sub : Base {
      */
     override init(designated _: Int) {
         
-        let level = NestLevel();
-        let log = { report(nest: level, class: .sub, init: .designated, message: $0) }
+        let print = makeLogFunctionFor(.sub, .designated)
+        
+        print("➡️ Did Enter to SUB's overrided DESIGNATED.")
         
         self.constant = 0
+        print("📝 Did assign 0 to `self.constant`. <⛄️>")
         
-        log("➡️ Did Enter")
-        log("🚩 Assigned self.constant to 0 ⛄️")
-        
+        print("    Will call BASE's DESIGNATED. (super.init)");
         super.init(designated: 0)
-        
-        log("🔎 self.constant is \(self.constant) ⛄️")
-        log("↩️ Will Exit")
+        print("    Did call BASE's DESIGNATED.");
+
+        print("🔅 Assigned value of `self.constant` is \(self.constant). <⛄️>")
+
+        print("↩️ Will Exit from SUB's overrided DESIGNATED.")
     }
     
     /*
@@ -42,16 +39,20 @@ class Sub : Base {
      */
     override init(convenience value: Int) {
         
-        let level = NestLevel();
-        let log = { report(nest: level, class: .sub, init: .convenience, message: $0) }
+        let print = makeLogFunctionFor(.sub, .convenience)
+
+        print("➡️ Did Enter to SUB's overrided CONVENIENCE.")
+        print("⚠️ This SUB's CONVENIENCE was overrided as DESIGNATED in Swift !!")
         
-        log("➡️ Did Enter ⚠️ Overrided base's CONVENIENCE as DESIGNATED in Swift !!")
         self.constant = value
-        
-        log("🚩 Assigned self.constant to \(value) ☀️")
+        print("📝 Did assign \(value) to `self.constant`. <☀️>")
+
+        print("    Will call BASE's CONVENIENCE. (super.init)");
         super.init(convenience: value)
+        print("    Did call BASE's CONVENIENCE.");
         
-        log("🔎 self.constant is \(self.constant) ☀️")
-        log("↩️ Will Exit")
+        print("🔅 Assigned value of `self.constant` is \(self.constant). <☀️>")
+        
+        print("↩️ Will Exit from SUB's overrided CONVENIENCE.")
     }
 }

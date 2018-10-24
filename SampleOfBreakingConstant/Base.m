@@ -11,32 +11,27 @@
 
 @implementation KMGBase
 
-typedef void (^LOG)(KMGNestLevel* _Nonnull level, NSString* _Nonnull message);
-
 - (instancetype)initAsDesignated:(NSInteger)dummy
 {
-    KMGNestLevel* level = [[KMGNestLevel alloc] init];
-    LOG log = ^(KMGNestLevel* level, NSString* message) { report(level, ClassTypeBase, InitializerTypeDesignated, message); };
+    LogFunction print = makeLogFunctionFor(ClassTypeBase, InitializerTypeDesignated);
 
-    log(level, @"🏁 Called (Initialized completely)");
+    print(@"🏁 Called BASE's DESIGNATED. (Now, initialized completely)");
 
     return [super init];
 }
 
 - (instancetype)initAsConvenience:(NSInteger)value
 {
-    KMGNestLevel* level = [[KMGNestLevel alloc] init];
-    LOG log = ^(KMGNestLevel* level, NSString* message) { report(level, ClassTypeBase, InitializerTypeConvenience, message); };
-    
-    log(level, @"➡️ Did Enter");
+    LogFunction print = makeLogFunctionFor(ClassTypeBase, InitializerTypeConvenience);
 
+    print(@"➡️ Did Enter to BASE's CONVENIENCE.");
+    
+    print(@"    Will call BASE's DESIGNATED. (self.init)");
     self = [self initAsDesignated:value];
+    print(@"    Did call BASE's DESIGNATED.");
+
+    print(@"↩️ Will Exit from BASE's CONVENIENCE.");
     
-    if (self)
-    {
-    }
-    
-    log(level, @"↩️ Will Exit");
     return self;
 }
 

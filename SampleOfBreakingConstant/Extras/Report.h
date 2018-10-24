@@ -19,4 +19,6 @@ typedef NS_ENUM(NSUInteger, InitializerType) {
     InitializerTypeConvenience,
 };
 
-void report( KMGNestLevel* _Nonnull  level, ClassType classType, InitializerType initType, NSString* _Nonnull message) NS_SWIFT_NAME(report(nest:class:init:message:));
+typedef void (^LogFunction)(NSString*);
+
+LogFunction _Nonnull makeLogFunctionFor(ClassType classType, InitializerType initType);

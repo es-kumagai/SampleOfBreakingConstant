@@ -8,6 +8,18 @@
 
 #import "Report.h"
 
+void report( KMGNestLevel* _Nonnull  level, ClassType classType, InitializerType initType, NSString* _Nonnull message) NS_SWIFT_NAME(report(nest:class:init:message:));
+
+LogFunction makeLogFunctionFor(ClassType classType, InitializerType initType)
+{
+    KMGNestLevel* level = [[KMGNestLevel alloc] init];
+    
+    return ^(NSString* message) {
+        
+        report(level, classType, initType, message);
+    };
+}
+
 void report(KMGNestLevel* level, ClassType classType, InitializerType initType, NSString* message)
 {
     const char* classLabel = nil;
