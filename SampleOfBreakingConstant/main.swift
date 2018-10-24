@@ -10,5 +10,6 @@ let value = 100
 let object = Sub(convenience: value)
 
 print("\n")
-print("🌻🌻🌻 Tried to initialize to assign a value `\(value)` to `object.constant`. 🤔")
-print("🌻🌻🌻 But `object.constant` was initialized by `\(object.constant)`. 😧")
+print("🌻🌻🌻 A property named `constant` is defined using `let` keyword in the class named `Sub`.")
+print("🌻🌻🌻 Tried to initialize to assign a value `\(value)` to `constant`. 🤔")
+print("🌻🌻🌻 But `constant` was initialized by `\(object.constant)`. 😧")
