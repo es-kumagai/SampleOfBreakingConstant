@@ -23,9 +23,9 @@ class Sub : Base {
         self.constant = 0
         print("📝 Did assign 0 to `self.constant`. <⛄️>")
         
-        print("    Will call BASE's DESIGNATED. (super.init)");
+        print("ℹ️ Will call \"SUPER's\" DESIGNATED. (super.init)");
         super.init(designated: 0)
-        print("    Did call BASE's DESIGNATED.");
+        print("ℹ️ Did call \"SUPER's\" DESIGNATED.");
 
         print("🔅 Assigned value of `self.constant` is \(self.constant). <⛄️>")
 
@@ -43,13 +43,16 @@ class Sub : Base {
 
         print("➡️ Did Enter to SUB's overrided CONVENIENCE.")
         print("⚠️ This SUB's CONVENIENCE was overrided as DESIGNATED in Swift !!")
-        
+        print("🙅🏻‍♀️ THIS IS THE WRONG POINT !");
+        print("🙅🏻‍♀️ In BASE class, this initializer was defined as CONVENIENCE,");
+        print("🙅🏻‍♀️ So this initializer must be implemented as CONVENIENCE in SUB class too.");
+
         self.constant = value
         print("📝 Did assign \(value) to `self.constant`. <☀️>")
 
-        print("    Will call BASE's CONVENIENCE. (super.init)");
+        print("ℹ️ Will call \"SUPER's\" CONVENIENCE. (super.init)");
         super.init(convenience: value)
-        print("    Did call BASE's CONVENIENCE.");
+        print("ℹ️ Did call \"SUPER's\" CONVENIENCE.");
         
         print("🔅 Assigned value of `self.constant` is \(self.constant). <☀️>")
         

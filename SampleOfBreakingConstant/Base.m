@@ -26,9 +26,9 @@
 
     print(@"➡️ Did Enter to BASE's CONVENIENCE.");
     
-    print(@"    Will call BASE's DESIGNATED. (self.init)");
+    print(@"ℹ️ Will call \"My\" DESIGNATED. (self.init)");
     self = [self initAsDesignated:value];
-    print(@"    Did call BASE's DESIGNATED.");
+    print(@"ℹ️ Did call \"My\" DESIGNATED.");
 
     print(@"↩️ Will Exit from BASE's CONVENIENCE.");
     
